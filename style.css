@@ -96,6 +96,259 @@ nav {
      transform: translateY(-1px);
 }
 
+.nav-links .nav-legal {
+     font-size: 0.72rem;
+     opacity: 0.4;
+}
+
+.nav-links .nav-legal:hover {
+     opacity: 1;
+     color: var(--white) !important;
+}
+
+nav.scrolled {
+     box-shadow: 0 4px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* hamburger */
+.nav-toggle {
+     display: none;
+     flex-direction: column;
+     gap: 5px;
+     background: none;
+     border: none;
+     cursor: pointer;
+     padding: 4px;
+}
+
+.nav-toggle span {
+     display: block;
+     width: 22px;
+     height: 2px;
+     background: var(--white);
+     transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ── CONTEÚDO MARKDOWN ── */
+.content-area {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 40px;
+}
+
+.md-section {
+     padding: 100px 0;
+     border-bottom: 1px solid var(--border);
+}
+
+.md-section:last-child {
+     border-bottom: none;
+}
+
+.md-section[data-id="escola"] {
+     scroll-margin-top: 80px;
+}
+
+.md-section[data-id="diferenciais"] {
+     scroll-margin-top: 80px;
+}
+
+.md-section[data-id="contato"] {
+     scroll-margin-top: 80px;
+}
+
+/* cards para h3 */
+.md-cards {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+     gap: 24px;
+}
+
+.md-card {
+     background: var(--gray);
+     border: 1px solid var(--border);
+     padding: 28px 24px;
+     transition: border-color 0.25s, transform 0.25s;
+}
+
+.md-card:hover {
+     border-color: var(--red);
+     transform: translateY(-3px);
+}
+
+.md-card h3 {
+     font-family: 'Bebas Neue', sans-serif;
+     font-size: 1.2rem;
+     letter-spacing: 2px;
+     color: var(--white);
+     margin-bottom: 12px;
+}
+
+.md-card p {
+     font-size: 0.9rem;
+     color: rgba(245, 245, 245, 0.6);
+     line-height: 1.75;
+}
+
+/* lista */
+.md-list-section ul {
+     list-style: none;
+     display: flex;
+     flex-direction: column;
+     gap: 12px;
+     max-width: 640px;
+}
+
+.md-list-section ul li {
+     display: flex;
+     align-items: flex-start;
+     gap: 14px;
+     font-size: 0.95rem;
+     color: rgba(245, 245, 245, 0.7);
+     padding: 14px 18px;
+     background: var(--gray);
+     border: 1px solid var(--border);
+}
+
+.md-list-section ul li::before {
+     content: '▸';
+     color: var(--red);
+     font-size: 0.85rem;
+     margin-top: 2px;
+     flex-shrink: 0;
+}
+
+.md-list-section ul li strong {
+     color: var(--white);
+     font-weight: 700;
+}
+
+/* texto puro */
+.md-text-section p {
+     font-size: 0.95rem;
+     color: rgba(245, 245, 245, 0.65);
+     line-height: 1.85;
+     max-width: 660px;
+     margin-bottom: 14px;
+}
+
+.md-text-section p strong {
+     color: var(--white);
+     font-weight: 700;
+}
+
+.md-text-section p a {
+     color: var(--red);
+     text-decoration: underline;
+     text-decoration-color: rgba(204, 0, 0, 0.4);
+     transition: text-decoration-color 0.2s;
+}
+
+.md-text-section p a:hover {
+     text-decoration-color: var(--red);
+}
+
+/* ── LEGAL ── */
+.legal-area {
+     max-width: 760px;
+     margin: 100px auto 80px;
+     padding: 0 40px;
+}
+
+.legal-area h1 {
+     font-family: 'Bebas Neue', sans-serif;
+     font-size: clamp(2rem, 4vw, 3rem);
+     letter-spacing: 2px;
+     color: var(--white);
+     margin-bottom: 8px;
+}
+
+.legal-area em {
+     font-size: 0.8rem;
+     color: rgba(245, 245, 245, 0.4);
+     display: block;
+     margin-bottom: 48px;
+}
+
+.legal-area h2 {
+     font-family: 'Bebas Neue', sans-serif;
+     font-size: 1.3rem;
+     letter-spacing: 2px;
+     color: var(--red);
+     margin: 40px 0 14px;
+}
+
+.legal-area h3 {
+     font-size: 0.95rem;
+     font-weight: 700;
+     color: var(--white);
+     margin: 24px 0 10px;
+}
+
+.legal-area p {
+     font-size: 0.9rem;
+     color: rgba(245, 245, 245, 0.6);
+     line-height: 1.85;
+     margin-bottom: 14px;
+}
+
+.legal-area ul {
+     margin: 10px 0 16px 20px;
+}
+
+.legal-area ul li {
+     font-size: 0.9rem;
+     color: rgba(245, 245, 245, 0.6);
+     margin-bottom: 8px;
+}
+
+.legal-area a {
+     color: var(--red);
+     text-decoration: underline;
+}
+
+.legal-area strong {
+     color: var(--white);
+     font-weight: 700;
+}
+
+.legal-area hr {
+     border: none;
+     border-top: 1px solid var(--border);
+     margin: 36px 0;
+}
+
+.legal-loading {
+     color: rgba(245, 245, 245, 0.4);
+     font-size: 0.9rem;
+     padding: 40px 0;
+}
+
+/* footer legal link */
+.footer-legal {
+     color: rgba(245, 245, 245, 0.25);
+     font-size: 0.78rem;
+     letter-spacing: 1px;
+     text-decoration: none;
+     transition: color 0.2s;
+}
+
+.footer-legal:hover {
+     color: var(--red);
+}
+
+/* ── REVEAL ANIMATION ── */
+.reveal {
+     opacity: 0;
+     transform: translateY(20px);
+     transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+     opacity: 1;
+     transform: translateY(0);
+}
+
 /* ── HERO ── */
 .hero {
      margin-top: 70px;
@@ -455,12 +708,31 @@ footer {
 }
 
 @media (max-width: 768px) {
-     nav {
-          padding: 0 20px;
+     .nav-toggle {
+          display: flex;
      }
 
      .nav-links {
           display: none;
+          position: fixed;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background: rgba(10, 10, 10, 0.97);
+          backdrop-filter: blur(12px);
+          flex-direction: column;
+          align-items: center;
+          gap: 28px;
+          padding: 40px 32px;
+          border-bottom: 1px solid var(--border);
+     }
+
+     .nav-links.open {
+          display: flex;
+     }
+
+     .nav-links a {
+          font-size: 0.9rem;
      }
 
      .hero-card {
@@ -473,6 +745,14 @@ footer {
 
      .section {
           padding: 60px 20px;
+     }
+
+     .content-area {
+          padding: 0 20px;
+     }
+
+     .md-section {
+          padding: 72px 0;
      }
 
      .photos-grid {

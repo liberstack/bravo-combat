@@ -5,8 +5,7 @@
      <meta charset="UTF-8" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <title>Bravo Combat — Kickboxing</title>
-     <link rel="icon" type="image/jpg" href="./assets/bravo_logo.jpg">
-
+     <link rel="icon" type="image/jpg" href="./assets/bravo_logo.jpg" />
      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap"
           rel="stylesheet" />
      <link rel="stylesheet" href="style.css" />
@@ -15,192 +14,217 @@
 <body>
 
      <!-- NAV -->
-     <nav>
+     <nav id="nav">
           <div class="nav-logo">
                <img src="./assets/bravo_logo.jpg" alt="Bravo Combat Logo" />
                <span>Bravo Combat</span>
           </div>
-          <ul class="nav-links">
+          <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+               <span></span><span></span>
+          </button>
+          <ul class="nav-links" id="nav-links">
                <li><a href="#sobre">Sobre</a></li>
                <li><a href="#galeria">Galeria</a></li>
                <li><a href="#contato" class="nav-cta">Contato</a></li>
+               <li><a href="#legal" class="nav-legal">Privacidade</a></li>
           </ul>
      </nav>
 
-     <!-- HERO -->
-     <section class="hero" id="sobre">
-          <div class="hero-card">
-               <div class="hero-tag">Est. 2020 — Rio de Janeiro</div>
-               <h1 class="hero-title">
-                    Bravo<br />
-                    <span>Combat</span>
-               </h1>
-               <p class="hero-desc">
-                    Na Bravo Combat, kickboxing não é só um esporte — é uma filosofia de vida.
-                    Treinamos atletas e iniciantes com a mesma intensidade, com metodologia séria,
-                    ambiente acolhedor e profissionais que vivem o que ensinam.
-                    Aqui você vai mais longe do que imagina.
-               </p>
-               <div class="hero-stats">
-                    <div class="stat-item">
-                         <span class="stat-num">5+</span>
-                         <span class="stat-label">Anos de história</span>
+     <!-- VIEW PRINCIPAL -->
+     <div id="view-main">
+
+          <!-- HERO -->
+          <section class="hero" id="sobre">
+               <div class="hero-card">
+                    <div class="hero-tag">Est. 2020 — Rio de Janeiro</div>
+                    <h1 class="hero-title" id="hero-title"><!-- preenchido via content.md --></h1>
+                    <p class="hero-desc" id="hero-desc"><!-- preenchido via content.md --></p>
+                    <div class="hero-stats">
+                         <div class="stat-item">
+                              <span class="stat-num">5+</span>
+                              <span class="stat-label">Anos de história</span>
+                         </div>
+                         <div class="stat-item">
+                              <span class="stat-num">200+</span>
+                              <span class="stat-label">Alunos ativos</span>
+                         </div>
+                         <div class="stat-item">
+                              <span class="stat-num">15+</span>
+                              <span class="stat-label">Campeões formados</span>
+                         </div>
+                         <div class="stat-item">
+                              <span class="stat-num">6x</span>
+                              <span class="stat-label">Dias por semana</span>
+                         </div>
                     </div>
-                    <div class="stat-item">
-                         <span class="stat-num">200+</span>
-                         <span class="stat-label">Alunos ativos</span>
-                    </div>
-                    <div class="stat-item">
-                         <span class="stat-num">15+</span>
-                         <span class="stat-label">Campeões formados</span>
-                    </div>
-                    <div class="stat-item">
-                         <span class="stat-num">6x</span>
-                         <span class="stat-label">Dias por semana</span>
+               </div>
+          </section>
+
+          <div class="red-divider"></div>
+
+          <!-- CONTEÚDO DO MARKDOWN (seções sobre, diferenciais, contato) -->
+          <div class="content-area" id="content-area">
+               <!-- seções renderizadas por app.js a partir de content.md -->
+          </div>
+
+          <div class="red-divider"></div>
+
+          <!-- GALERIA (estática, imagens no HTML) -->
+          <div id="galeria">
+               <div class="section">
+                    <p class="section-label">Nossa Escola</p>
+                    <h2 class="section-title">Galeria</h2>
+                    <div class="photos-grid">
+
+                         <div class="photo-card">
+                              <img src="./assets/101965-001.jpg" alt="Vista Geral da Academia" />
+                              <div class="photo-placeholder">
+                                   <div class="photo-icon">
+                                        <svg viewBox="0 0 24 24">
+                                             <rect x="3" y="3" width="18" height="18" rx="2" />
+                                             <circle cx="8.5" cy="8.5" r="1.5" />
+                                             <polyline points="21 15 16 10 5 21" />
+                                        </svg>
+                                   </div>
+                                   <span class="photo-num">FOTO 01</span>
+                              </div>
+                              <div class="photo-overlay"><span class="photo-caption">Vista Geral da Academia</span>
+                              </div>
+                         </div>
+
+                         <div class="photo-card">
+                              <img src="./assets/Best-Martial-Arts-San-Diego.jpg" alt="Treino em Grupo" />
+                              <div class="photo-placeholder">
+                                   <div class="photo-icon">
+                                        <svg viewBox="0 0 24 24">
+                                             <rect x="3" y="3" width="18" height="18" rx="2" />
+                                             <circle cx="8.5" cy="8.5" r="1.5" />
+                                             <polyline points="21 15 16 10 5 21" />
+                                        </svg>
+                                   </div>
+                                   <span class="photo-num">FOTO 02</span>
+                              </div>
+                              <div class="photo-overlay"><span class="photo-caption">Treino em Grupo</span></div>
+                         </div>
+
+                         <div class="photo-card">
+                              <img src="./assets/bg-desktop.jpg" alt="Equipamentos e Estrutura" />
+                              <div class="photo-placeholder">
+                                   <div class="photo-icon">
+                                        <svg viewBox="0 0 24 24">
+                                             <rect x="3" y="3" width="18" height="18" rx="2" />
+                                             <circle cx="8.5" cy="8.5" r="1.5" />
+                                             <polyline points="21 15 16 10 5 21" />
+                                        </svg>
+                                   </div>
+                                   <span class="photo-num">FOTO 03</span>
+                              </div>
+                              <div class="photo-overlay"><span class="photo-caption">Equipamentos e Estrutura</span>
+                              </div>
+                         </div>
+
+                         <div class="photo-card">
+                              <img src="./assets/IMG_5976-scaled.webp" alt="Aula com Instrutores" />
+                              <div class="photo-placeholder">
+                                   <div class="photo-icon">
+                                        <svg viewBox="0 0 24 24">
+                                             <rect x="3" y="3" width="18" height="18" rx="2" />
+                                             <circle cx="8.5" cy="8.5" r="1.5" />
+                                             <polyline points="21 15 16 10 5 21" />
+                                        </svg>
+                                   </div>
+                                   <span class="photo-num">FOTO 04</span>
+                              </div>
+                              <div class="photo-overlay"><span class="photo-caption">Aula com Instrutores</span></div>
+                         </div>
+
+                         <div class="photo-card">
+                              <img src="./assets/martial-art-school.jpg" alt="Competições e Vitórias" />
+                              <div class="photo-placeholder">
+                                   <div class="photo-icon">
+                                        <svg viewBox="0 0 24 24">
+                                             <rect x="3" y="3" width="18" height="18" rx="2" />
+                                             <circle cx="8.5" cy="8.5" r="1.5" />
+                                             <polyline points="21 15 16 10 5 21" />
+                                        </svg>
+                                   </div>
+                                   <span class="photo-num">FOTO 05</span>
+                              </div>
+                              <div class="photo-overlay"><span class="photo-caption">Competições e Vitórias</span></div>
+                         </div>
+
                     </div>
                </div>
           </div>
-     </section>
 
-     <div class="red-divider"></div>
+          <div class="red-divider"></div>
 
-     <!-- GALLERY -->
-     <div id="galeria">
-          <div class="section">
-               <div class="section-label">Nossa Escola</div>
-               <h2 class="section-title">Galeria</h2>
+          <!-- FOOTER -->
+          <footer id="contato">
+               <div class="footer-inner">
+                    <div class="footer-top">
 
-               <div class="photos-grid">
-
-                    <div class="photo-card">
-                         <img src="./assets/101965-001.jpg" alt="Descrição" />
-                         <div class="photo-placeholder">
-                              <div class="photo-icon">
-                                   <svg viewBox="0 0 24 24">
-                                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                                        <circle cx="8.5" cy="8.5" r="1.5" />
-                                        <polyline points="21 15 16 10 5 21" />
-                                   </svg>
-                              </div>
-                              <span class="photo-num">FOTO 01</span>
+                         <div class="footer-brand">
+                              <img src="./assets/bravo_logo.jpg" alt="Bravo Combat" />
+                              <p>Escola de Kickboxing. Formando atletas e transformando vidas.</p>
                          </div>
-                         <div class="photo-overlay"><span class="photo-caption">Vista Geral da Academia</span></div>
-                    </div>
 
-                    <div class="photo-card">
-                         <img src="./assets/Best-Martial-Arts-San-Diego.jpg" alt="Descrição" />
-                         <div class="photo-placeholder">
-                              <div class="photo-icon">
-                                   <svg viewBox="0 0 24 24">
-                                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                                        <circle cx="8.5" cy="8.5" r="1.5" />
-                                        <polyline points="21 15 16 10 5 21" />
-                                   </svg>
-                              </div>
-                              <span class="photo-num">FOTO 02</span>
+                         <div class="footer-col">
+                              <h4>Contato</h4>
+                              <ul>
+                                   <li><span class="footer-icon">✉</span><a
+                                             href="mailto:contato@bravocombat.com.br">contato@bravocombat.com.br</a>
+                                   </li>
+                                   <li><span class="footer-icon">✉</span><a
+                                             href="mailto:secretaria@bravocombat.com.br">secretaria@bravocombat.com.br</a>
+                                   </li>
+                                   <li><span class="footer-icon">☎</span><a href="tel:+5531999999999">(31) 9
+                                             9999-9999</a></li>
+                                   <li><span class="footer-icon">☎</span><a href="tel:+5531999999998">(31) 9
+                                             9999-9998</a></li>
+                              </ul>
                          </div>
-                         <div class="photo-overlay"><span class="photo-caption">Treino em Grupo</span></div>
-                    </div>
 
-                    <div class="photo-card">
-                         <img src="./assets/bg-desktop.jpg" alt="Descrição" />
-                         <div class="photo-placeholder">
-                              <div class="photo-icon">
-                                   <svg viewBox="0 0 24 24">
-                                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                                        <circle cx="8.5" cy="8.5" r="1.5" />
-                                        <polyline points="21 15 16 10 5 21" />
-                                   </svg>
-                              </div>
-                              <span class="photo-num">FOTO 03</span>
+                         <div class="footer-col">
+                              <h4>Redes Sociais</h4>
+                              <ul>
+                                   <li><span class="footer-icon">📸</span><a
+                                             href="https://www.instagram.com/bravo_combat_kb/"
+                                             target="_blank">@bravo_combat_kb</a></li>
+                                   <li><span class="footer-icon">📍</span><span>Rua Exemplo, 123 — Rio de Janeiro,
+                                             RJ</span></li>
+                                   <li><span class="footer-icon">🕐</span><span>Seg–Sex: 06h–22h | Sáb: 08h–14h</span>
+                                   </li>
+                              </ul>
                          </div>
-                         <div class="photo-overlay"><span class="photo-caption">Equipamentos e Estrutura</span></div>
-                    </div>
 
-                    <div class="photo-card">
-                         <img src="./assets/IMG_5976-scaled.webp" alt="Descrição" />
-                         <div class="photo-placeholder">
-                              <div class="photo-icon">
-                                   <svg viewBox="0 0 24 24">
-                                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                                        <circle cx="8.5" cy="8.5" r="1.5" />
-                                        <polyline points="21 15 16 10 5 21" />
-                                   </svg>
-                              </div>
-                              <span class="photo-num">FOTO 04</span>
-                         </div>
-                         <div class="photo-overlay"><span class="photo-caption">Aula com Instrutores</span></div>
                     </div>
-
-                    <div class="photo-card">
-                         <img src="./assets/martial-art-school.jpg" alt="Descrição" />
-                         <div class="photo-placeholder">
-                              <div class="photo-icon">
-                                   <svg viewBox="0 0 24 24">
-                                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                                        <circle cx="8.5" cy="8.5" r="1.5" />
-                                        <polyline points="21 15 16 10 5 21" />
-                                   </svg>
-                              </div>
-                              <span class="photo-num">FOTO 05</span>
-                         </div>
-                         <div class="photo-overlay"><span class="photo-caption">Competições e Vitórias</span></div>
+                    <div class="footer-bottom">
+                         <p>© 2026 <span>Bravo Combat</span>. Todos os direitos reservados.</p>
+                         <p><a href="#legal" class="footer-legal">Termos &amp; Privacidade</a></p>
                     </div>
-
                </div>
-          </div>
+          </footer>
+
+     </div><!-- /view-main -->
+
+     <!-- VIEW LEGAL -->
+     <div class="legal-area" id="legal-area" style="display:none">
+          <p class="legal-loading">Carregando...</p>
      </div>
 
-     <div class="red-divider"></div>
+     <!-- marked.js: tenta local, fallback CDN -->
+     <script src="marked.min.js" onerror="loadMarkedCDN()"></script>
+     <script>
+          function loadMarkedCDN() {
+               var s = document.createElement('script');
+               s.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+               document.head.appendChild(s);
+          }
+     </script>
+     <script src="ui.js"></script>
+     <script src="app.js"></script>
 
-     <!-- FOOTER -->
-     <footer id="contato">
-          <div class="footer-inner">
-               <div class="footer-top">
-
-                    <div class="footer-brand">
-                         <img src="./assets/bravo_logo.jpg" alt="Bravo Combat" />
-                         <p>Escola de Kickboxing. Formando atletas e transformando vidas.
-                         </p>
-                    </div>
-
-                    <div class="footer-col">
-                         <h4>Contato</h4>
-                         <ul>
-                              <li><span class="footer-icon">✉</span><a
-                                        href="mailto:contato@bravocombat.com.br">contato@bravocombat.com.br</a></li>
-                              <li><span class="footer-icon">✉</span><a
-                                        href="mailto:secretaria@bravocombat.com.br">secretaria@bravocombat.com.br</a>
-                              </li>
-                              <li><span class="footer-icon">☎</span><a href="tel:+5531999999999">(31) 9 9999-9999</a>
-                              </li>
-                              <li><span class="footer-icon">☎</span><a href="tel:+5531999999998">(31) 9 9999-9998</a>
-                              </li>
-                         </ul>
-                    </div>
-
-                    <div class="footer-col">
-                         <h4>Redes Sociais</h4>
-                         <ul>
-                              <li><span class="footer-icon">📸</span><a
-                                        href="https://www.instagram.com/bravo_combat_kb/"
-                                        target="_blank">@bravo_combat_kb</a></li>
-                              <li><span class="footer-icon">📍</span><span>Rua Exemplo, 123 — Rio de Janeiro, RJ</span>
-                              </li>
-                              <li><span class="footer-icon">🕐</span><span>Seg–Sex: 06h–22h | Sáb: 08h–14h</span></li>
-                         </ul>
-                    </div>
-
-               </div>
-
-               <div class="footer-bottom">
-                    <p>© 2026 <span>Bravo Combat</span>. Todos os direitos reservados.</p>
-                    <p>Kickboxing — Rio de Janeiro, RJ</p>
-               </div>
-          </div>
-     </footer>
-
-     <script src="script.js"></script>
 </body>
 
 </html>
