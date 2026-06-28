@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal – Bravo Combat</title>
+  <meta name="description" content="Política de Privacidade e Termos de Uso da Bravo Combat." />
+  <link rel="icon" type="image/jpeg" href="images/bravo_logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Legal-specific overrides ── */
+    .legal-page {
+      padding-top: calc(var(--nav-h) + 60px);
+      padding-bottom: 100px;
+    }
+
+    .legal-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--white-20);
+      margin-bottom: 56px;
+    }
+
+    .legal-tab {
+      font-family: var(--body);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      padding: 14px 28px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .legal-tab:hover {
+      color: var(--white);
+    }
+
+    .legal-tab.active {
+      color: var(--red-bright);
+      border-bottom-color: var(--red-bright);
+    }
+
+    .legal-panel {
+      display: none;
+    }
+
+    .legal-panel.active {
+      display: block;
+    }
+
+    .legal-panel h1 {
+      font-family: var(--display);
+      font-size: clamp(36px, 6vw, 60px);
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .legal-panel .update {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.35);
+      margin-bottom: 40px;
+    }
+
+    .legal-section {
+      margin-bottom: 40px;
+    }
+
+    .legal-section h2 {
+      font-family: var(--display);
+      font-size: 24px;
+      letter-spacing: 0.05em;
+      color: var(--red-bright);
+      margin-bottom: 12px;
+    }
+
+    .legal-section p {
+      font-size: 15px;
+      color: var(--white-60);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .legal-section ul {
+      list-style: disc;
+      padding-left: 24px;
+      color: var(--white-60);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .legal-section ul li {
+      margin-bottom: 6px;
+    }
+
+    .legal-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 48px;
+      transition: color 0.15s;
+    }
+
+    .legal-back:hover {
+      color: var(--red-bright);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/bravo_logo.jpg" alt="Bravo Combat" class="nav-logo-img" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#modalidades">Modalidades</a></li>
+        <li><a href="index.html#horarios">Horários</a></li>
+        <li><a href="index.html#contato" class="nav-cta">Começar agora</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- LEGAL CONTENT -->
+  <main class="legal-page">
+    <div class="container" style="max-width: 800px;">
+
+      <a href="index.html" class="legal-back">← Voltar ao site</a>
+
+      <!-- Tabs -->
+      <div class="legal-tabs" role="tablist">
+        <button class="legal-tab active" id="tab-privacidade" role="tab" aria-selected="true"
+          aria-controls="panel-privacidade" data-target="panel-privacidade">Política de Privacidade</button>
+        <button class="legal-tab" id="tab-termos" role="tab" aria-selected="false" aria-controls="panel-termos"
+          data-target="panel-termos">Termos de Uso</button>
+      </div>
+
+      <!-- ── PRIVACIDADE ── -->
+      <section class="legal-panel active" id="panel-privacidade" role="tabpanel" aria-labelledby="tab-privacidade">
+        <h1>Política de Privacidade</h1>
+        <p class="update">Última atualização: junho de 2025</p>
+
+        <div class="legal-section">
+          <h2>1. Quem somos</h2>
+          <p>A <strong>Bravo Combat Academia de Artes Marciais</strong> ("Bravo Combat", "nós") é responsável pelo
+            tratamento dos seus dados pessoais coletados por meio deste site e dos formulários de contato
+            disponibilizados.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>2. Dados que coletamos</h2>
+          <p>Ao preencher nosso formulário de aula gratuita, coletamos:</p>
+          <ul>
+            <li>Nome completo</li>
+            <li>Número de WhatsApp/telefone</li>
+            <li>Modalidade de interesse (opcional)</li>
+          </ul>
+          <p>Não coletamos dados de pagamento, documentos pessoais ou dados sensíveis por meio deste site.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>3. Como usamos seus dados</h2>
+          <p>Utilizamos suas informações exclusivamente para:</p>
+          <ul>
+            <li>Entrar em contato para agendar sua aula experimental;</li>
+            <li>Responder dúvidas e solicitações enviadas por você;</li>
+            <li>Enviar comunicações sobre a academia, mediante seu consentimento.</li>
+          </ul>
+          <p>Seus dados <strong>não são vendidos, alugados ou compartilhados</strong> com terceiros para fins
+            comerciais.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>4. Base legal (LGPD)</h2>
+          <p>O tratamento dos seus dados fundamenta-se no <strong>legítimo interesse</strong> em responder ao seu
+            contato (Art. 7º, IX, da Lei 13.709/2018 – LGPD) e, quando aplicável, no seu <strong>consentimento</strong>
+            para recebimento de comunicações.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>5. Retenção e exclusão</h2>
+          <p>Mantemos seus dados pelo tempo necessário para prestar o serviço solicitado ou até que você solicite a
+            exclusão, respeitando obrigações legais de guarda de informações.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>6. Seus direitos</h2>
+          <p>Você tem direito a, a qualquer momento:</p>
+          <ul>
+            <li>Confirmar a existência de tratamento dos seus dados;</li>
+            <li>Acessar, corrigir ou excluir seus dados;</li>
+            <li>Revogar consentimento previamente dado;</li>
+            <li>Solicitar portabilidade ou anonimização dos dados.</li>
+          </ul>
+          <p>Para exercer seus direitos, entre em contato: <a href="mailto:privacidade@bravocombat.com.br"
+              style="color:var(--red)">privacidade@bravocombat.com.br</a></p>
+        </div>
+
+        <div class="legal-section">
+          <h2>7. Cookies</h2>
+          <p>Este site utiliza apenas cookies técnicos essenciais para o funcionamento das páginas. Não utilizamos
+            cookies de rastreamento ou publicidade.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>8. Alterações nesta política</h2>
+          <p>Podemos atualizar esta política periodicamente. A data de "última atualização" no topo desta página indica
+            a versão vigente. Recomendamos revisão periódica.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>9. Contato</h2>
+          <p>Dúvidas sobre privacidade: <a href="mailto:privacidade@bravocombat.com.br"
+              style="color:var(--red)">privacidade@bravocombat.com.br</a></p>
+        </div>
+      </section>
+
+      <!-- ── TERMOS ── -->
+      <section class="legal-panel" id="panel-termos" role="tabpanel" aria-labelledby="tab-termos">
+        <h1>Termos de Uso</h1>
+        <p class="update">Última atualização: junho de 2025</p>
+
+        <div class="legal-section">
+          <h2>1. Aceitação dos termos</h2>
+          <p>Ao acessar e utilizar o site da <strong>Bravo Combat</strong>, você concorda com estes Termos de Uso. Caso
+            não concorde, pedimos que não utilize o site.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>2. Uso do site</h2>
+          <p>Este site tem finalidade <strong>exclusivamente informativa</strong> sobre os serviços, modalidades e
+            contato da Bravo Combat. É proibido:</p>
+          <ul>
+            <li>Utilizar o site para fins ilícitos ou que violem estes termos;</li>
+            <li>Transmitir conteúdo ofensivo, enganoso ou que viole direitos de terceiros;</li>
+            <li>Tentar acessar sistemas internos ou comprometer a segurança do site;</li>
+            <li>Coletar dados de outros usuários sem autorização.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>3. Propriedade intelectual</h2>
+          <p>Todo o conteúdo deste site — incluindo textos, logotipo, design e imagens — é propriedade da Bravo Combat e
+            protegido pela legislação de direitos autorais. A reprodução sem autorização prévia e por escrito é
+            proibida.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>4. Serviços e matrículas</h2>
+          <p>As informações de horários, modalidades e preços disponíveis neste site são de caráter ilustrativo e podem
+            ser alteradas sem aviso prévio. A contratação efetiva de serviços ocorre presencialmente na academia,
+            mediante assinatura de contrato específico.</p>
+          <p>A aula experimental gratuita está sujeita à disponibilidade de vagas e ao agendamento prévio pela equipe da
+            academia.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>5. Limitação de responsabilidade</h2>
+          <p>A Bravo Combat não se responsabiliza por:</p>
+          <ul>
+            <li>Indisponibilidades temporárias do site por razões técnicas;</li>
+            <li>Danos decorrentes do uso indevido das informações disponíveis;</li>
+            <li>Links externos eventualmente presentes no site.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>6. Links externos</h2>
+          <p>O site pode conter links para redes sociais e outras plataformas. A Bravo Combat não controla o conteúdo
+            desses sites e não se responsabiliza por suas práticas de privacidade ou conteúdo.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>7. Modificações</h2>
+          <p>Reservamo-nos o direito de modificar estes Termos a qualquer momento. As alterações entram em vigor na data
+            de publicação no site. O uso continuado após as alterações implica aceitação dos novos termos.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>8. Legislação aplicável</h2>
+          <p>Estes Termos são regidos pelas leis brasileiras. Fica eleito o foro da comarca de Belo Horizonte/MG para
+            resolução de eventuais disputas decorrentes deste instrumento.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>9. Contato</h2>
+          <p>Dúvidas sobre estes termos: <a href="mailto:contato@bravocombat.com.br"
+              style="color:var(--red)">contato@bravocombat.com.br</a></p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/bravo_logo.jpg" alt="Bravo Combat" class="footer-logo" />
+        <p>Forjando campeões desde 2012.</p>
+      </div>
+      <div class="footer-links">
+        <h5>Academia</h5>
+        <ul>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="index.html#modalidades">Modalidades</a></li>
+          <li><a href="index.html#horarios">Horários</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="legal.html#privacidade">Política de Privacidade</a></li>
+          <li><a href="legal.html#termos">Termos de Uso</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Fale conosco</h5>
+        <p>📍 Rua dos Campeões, 42 – Centro</p>
+        <p>📞 <a href="tel:+5531900000000">(31) 9 0000-0000</a></p>
+        <p>✉️ <a href="mailto:contato@bravocombat.com.br">contato@bravocombat.com.br</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Bravo Combat. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="ui.js"></script>
+  <script>
+    /* Tab switching for legal page */
+    (function () {
+      const tabs = document.querySelectorAll('.legal-tab');
+      const panels = document.querySelectorAll('.legal-panel');
+
+      // Hash-based activation
+      function activateByHash() {
+        const hash = location.hash.replace('#', '');
+        const match = document.getElementById('tab-' + hash);
+        if (match) activate(match);
+      }
+
+      function activate(btn) {
+        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        panels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById(btn.dataset.target).classList.add('active');
+      }
+
+      tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          activate(btn);
+          history.replaceState(null, '', '#' + btn.id.replace('tab-', ''));
+        });
+      });
+
+      activateByHash();
+      window.addEventListener('hashchange', activateByHash);
+    })();
+  </script>
+</body>
+
+</html>
