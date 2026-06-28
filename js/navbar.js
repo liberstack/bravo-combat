@@ -5,6 +5,8 @@
    — Smooth scroll com offset da navbar
 ═══════════════════════════════════════════════ */
 
+import { CONFIG } from "./config.js";
+
 export function initNavbar() {
   const navbar = document.getElementById("navbar");
   const toggle = document.getElementById("navToggle");
@@ -13,7 +15,10 @@ export function initNavbar() {
   /* ── Scroll state ─────────────────────────── */
   function onScroll() {
     if (!navbar) return;
-    navbar.classList.toggle("scrolled", window.scrollY > 40);
+    navbar.classList.toggle(
+      "scrolled",
+      window.scrollY > CONFIG.ui.navScrollThreshold,
+    );
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });

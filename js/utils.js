@@ -1,11 +1,34 @@
 /* ═══════════════════════════════════════════════
    utils.js
    — Scroll-reveal (IntersectionObserver)
+   — Aplicação dos dados de config.js no HTML
+     (data-config-text / data-config-href)
    — Utilitários pequenos sem módulo próprio
 ═══════════════════════════════════════════════ */
 
+import { CONFIG } from "./config.js";
+
 export function initUtils() {
   revealOnScroll();
+}
+
+/* ── Aplica CONFIG nos elementos marcados ─────── */
+export function applyConfig(config = CONFIG) {
+  document.querySelectorAll("[data-config-text]").forEach((el) => {
+    const value = getByPath(config, el.dataset.configText);
+    if (value != null) el.textContent = value;
+  });
+
+  document.querySelectorAll("[data-config-href]").forEach((el) => {
+    const value = getByPath(config, el.dataset.configHref);
+    if (value != null) el.setAttribute("href", value);
+  });
+}
+
+function getByPath(obj, path) {
+  return path
+    .split(".")
+    .reduce((acc, key) => (acc == null ? acc : acc[key]), obj);
 }
 
 /* ── Scroll-reveal ────────────────────────────── */
@@ -27,12 +50,13 @@ function revealOnScroll() {
     (entries) => {
       entries.forEach((entry, i) => {
         if (!entry.isIntersecting) return;
-        entry.target.style.transitionDelay = (i % 6) * 60 + "ms";
+        entry.target.style.transitionDelay =
+          (i % 6) * CONFIG.ui.revealStaggerStep + "ms";
         entry.target.classList.add("visible");
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.1 },
+    { threshold: CONFIG.ui.revealThreshold },
   );
 
   targets.forEach((el) => {

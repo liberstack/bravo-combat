@@ -5,6 +5,8 @@
    — Feedback visual inline
 ═══════════════════════════════════════════════ */
 
+import { CONFIG } from "./config.js";
+
 export function initForm() {
   const form = document.getElementById("ctaForm");
   if (!form) return;
@@ -22,13 +24,15 @@ export function initForm() {
     }
 
     const text = encodeURIComponent(
-      `Olá! Me chamo *${nome}* e quero agendar minha aula gratuita na Bravo Combat.\n` +
+      `Olá! Me chamo *${nome}* e quero agendar minha aula gratuita na ${CONFIG.site.name}.\n` +
         `Modalidade de interesse: *${modalidade || "A definir"}*.\n` +
         `Aguardo contato! 🥊`,
     );
 
-    const phone = "5531900000000";
-    window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+    window.open(
+      `https://wa.me/${CONFIG.contact.whatsappNumber}?text=${text}`,
+      "_blank",
+    );
 
     showMessage(form, "✅ Redirecionando para o WhatsApp…", "success");
     form.reset();
@@ -49,5 +53,5 @@ function showMessage(form, msg, type) {
   el.style.opacity = "1";
   setTimeout(() => {
     el.style.opacity = "0";
-  }, 4000);
+  }, CONFIG.ui.feedbackTimeoutMs);
 }

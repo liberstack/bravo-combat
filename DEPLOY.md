@@ -1,149 +1,84 @@
-# 🚀 Deploy – Bravo Combat
+# Deploy — Bravo Combat
 
-Guia de publicação do site. Por ser 100% estático (HTML + CSS + JS), pode ser hospedado gratuitamente em várias plataformas.
+Este é um site **100% estático** (HTML + CSS + JS com ES Modules), sem build
+e sem servidor backend. Pode ser publicado em qualquer host de arquivos
+estáticos.
 
----
+## ✅ Checklist antes de publicar
 
-## Pré-requisitos antes do deploy
+Confira tudo em **`js/config.js`** antes do deploy:
 
-1. Edite o número de WhatsApp real em `js/form.js` (busque por `5531900000000`)
-2. Edite o endereço, telefone e e-mail no footer de `index.html` e `legal.html`
-3. Substitua os links de Instagram e YouTube no footer
-4. Revise os textos de `legal.html` com suporte jurídico se necessário
-
----
-
-## Desenvolvimento local
-
-Os módulos JS usam `import/export` nativo e **não funcionam via `file://`**. Use um servidor local:
-
-```bash
-# Opção 1 — Node.js
-npx serve .
-
-# Opção 2 — Python
-python3 -m http.server 8000
-
-# Opção 3 — VS Code
-# Instale a extensão Live Server e clique em "Go Live"
-```
-
-Acesse em `http://localhost:8000` (ou porta indicada).
-
----
+- [ ] `contact.whatsappNumber` com o número real (apenas dígitos + DDI, ex.: `5531999999999`)
+- [ ] `contact.phoneDisplay` / `contact.phoneHref` corretos
+- [ ] `contact.email` / `contact.emailHref` corretos
+- [ ] `contact.emailPrivacidade` / `contact.emailPrivacidadeHref` corretos
+- [ ] `contact.address` atualizado
+- [ ] `social.instagram` e `social.youtube` (hoje apontam para `"#"` — trocar pelas URLs reais dos perfis)
+- [ ] Conteúdo de horários, modalidades e textos em `index.html`
+- [ ] Datas de "última atualização" em `legal.html`
 
 ## Opção 1 — Netlify (recomendado, gratuito)
 
-A forma mais simples para sites estáticos.
+**Via arrastar-e-soltar (mais simples):**
 
-```
-1. Acesse https://netlify.com e crie uma conta
-2. No dashboard: Add new site → Deploy manually
-3. Arraste a pasta do projeto para a área de upload
-4. O site fica online em segundos com URL *.netlify.app
+1. Acesse [app.netlify.com/drop](https://app.netlify.com/drop)
+2. Arraste a pasta `bravo-combat/` inteira
+3. Pronto — o Netlify gera uma URL pública na hora
+
+**Via CLI:**
+
+```bash
+npm install -g netlify-cli
+cd bravo-combat
+netlify deploy --prod
 ```
 
-Para domínio próprio (ex: `bravocombat.com.br`):
-
-```
-Netlify Dashboard → Site → Domain management → Add custom domain
-```
-
----
+**Domínio próprio:** em *Site settings → Domain management → Add custom
+domain*, e aponte o DNS do seu domínio (registro `CNAME` ou `A`) conforme
+instruções do próprio painel.
 
 ## Opção 2 — Vercel (gratuito)
 
 ```bash
-# Instale a CLI (requer Node.js)
-npm i -g vercel
-
-# Na pasta do projeto
-vercel
-
-# Siga o assistente interativo
-# Domínio customizado: vercel → Settings → Domains
+npm install -g vercel
+cd bravo-combat
+vercel --prod
 ```
 
----
+Ou via [vercel.com/new](https://vercel.com/new), importando a pasta/projeto
+direto da interface (sem precisar de repositório Git).
 
 ## Opção 3 — GitHub Pages (gratuito)
 
-```bash
-# 1. Crie um repositório no GitHub (ex: bravo-combat)
-git init
-git add .
-git commit -m "initial commit"
-git remote add origin https://github.com/seu-usuario/bravo-combat.git
-git push -u origin main
+1. Crie um repositório no GitHub e suba o conteúdo da pasta `bravo-combat/`
+   (incluindo `index.html` na raiz do repositório).
+2. No GitHub: **Settings → Pages → Source**, selecione a branch (ex.: `main`)
+   e a pasta raiz (`/`).
+3. O site fica disponível em `https://<seu-usuario>.github.io/<repo>/`.
 
-# 2. No repositório: Settings → Pages
-#    Source: Deploy from branch → main → / (root)
-#    O site fica em: https://seu-usuario.github.io/bravo-combat/
-```
+> Para domínio próprio, crie um arquivo `CNAME` na raiz do repositório com o
+> domínio desejado e configure o DNS conforme a
+> [documentação do GitHub Pages](https://docs.github.com/pages).
 
-Para domínio próprio, adicione um arquivo `CNAME` na raiz:
+## Opção 4 — Hospedagem tradicional (cPanel / FTP)
 
-```
-bravocombat.com.br
-```
+1. Acesse o painel de hospedagem ou um cliente FTP (FileZilla, etc.).
+2. Envie **todo o conteúdo** da pasta `bravo-combat/` para a pasta pública do
+   site (geralmente `public_html/` ou `www/`).
+3. Garanta que a estrutura de pastas seja preservada exatamente como está
+   (`js/`, `images/` no mesmo nível de `index.html`) — os caminhos nos
+   arquivos são relativos.
 
----
+## ⚠️ Pontos de atenção
 
-## Opção 4 — Hospedagem tradicional / cPanel (Hostgator, Locaweb etc.)
-
-```
-1. Acesse o Gerenciador de Arquivos do cPanel (ou via FTP)
-2. Navegue até public_html/
-3. Faça upload mantendo a estrutura de pastas:
-   - index.html
-   - legal.html
-   - style.css
-   - js/main.js
-   - js/navbar.js
-   - js/form.js
-   - js/utils.js
-   - images/bravo_logo.jpg
-4. Acesse o domínio — pronto.
-```
-
-Credenciais FTP: cPanel → FTP Accounts.
-
----
-
-## Estrutura de arquivos para upload
-
-```
-public_html/
-├── index.html
-├── legal.html
-├── style.css
-├── js/
-│   ├── main.js
-│   ├── navbar.js
-│   ├── form.js
-│   └── utils.js
-└── images/
-    └── bravo_logo.jpg
-```
-
-> ⚠️ Mantenha a estrutura de pastas intacta. Os imports em `main.js` e o logo dependem dos caminhos relativos.
-
----
-
-## Domínio `.com.br`
-
-- [registro.br](https://registro.br) — órgão oficial, ~R$ 40/ano
-- Após o registro, aponte os nameservers para a plataforma de hospedagem escolhida
-
----
-
-## Checklist pós-deploy
-
-- [ ] Site abre corretamente em desktop e mobile
-- [ ] Logo carrega (`images/bravo_logo.jpg`)
-- [ ] Links da navbar fazem scroll suave para as seções
-- [ ] Menu hambúrguer funciona no mobile
-- [ ] Formulário abre o WhatsApp com mensagem correta
-- [ ] Links `legal.html#privacidade` e `legal.html#termos` funcionam
-- [ ] Ano no footer atualizado automaticamente
-- [ ] HTTPS ativo (Netlify/Vercel/GitHub Pages ativam automaticamente)
+- **ES Modules exigem HTTP(S):** todos os métodos acima já servem os
+  arquivos via HTTP, então não há problema. O único cenário que **não**
+  funciona é abrir `index.html` direto do disco (`file://`) — para testar
+  localmente, use um servidor local (veja o `README.md`).
+- **HTTPS:** Netlify, Vercel e GitHub Pages já fornecem HTTPS automático e
+  gratuito. Em hospedagem tradicional, confirme se o provedor oferece
+  certificado SSL (Let's Encrypt, geralmente gratuito via cPanel).
+- **Cache do navegador:** após atualizar `config.js` ou qualquer outro
+  arquivo, se as mudanças não aparecerem, force um refresh
+  (`Ctrl+Shift+R` / `Cmd+Shift+R`) — alguns hosts/CDNs cacheiam arquivos
+  estáticos agressivamente.

@@ -1,109 +1,104 @@
-# 🥊 Bravo Combat – Landing Page
+# Bravo Combat — Site institucional
 
-Site institucional da **Bravo Combat Academia de Artes Marciais**, desenvolvido em HTML, CSS e JavaScript vanilla, sem frameworks ou dependências pesadas.
+Landing page institucional da **Bravo Combat** (kickboxing, Muay Thai e defesa
+pessoal): página principal (`index.html`) + página legal com Política de
+Privacidade e Termos de Uso (`legal.html`).
 
----
+Site estático (HTML, CSS e JavaScript puro com ES Modules), sem build, sem
+dependências e sem framework.
 
 ## Estrutura do projeto
 
 ```
-root/
-├── index.html        # Landing page principal
-├── legal.html        # Política de Privacidade e Termos de Uso
-├── style.css         # Estilos globais
-├── js/
-│   ├── main.js       # Entry point — inicializa módulos e seta o ano
-│   ├── navbar.js     # Scroll state, mobile menu, smooth scroll
-│   ├── form.js       # Validação, mensagem WhatsApp, feedback visual
-│   └── utils.js      # Scroll-reveal e utilitários avulsos
-└── images/
-    └── bravo_logo.jpg
+bravo-combat/
+├── index.html          → página principal
+├── legal.html          → política de privacidade + termos de uso
+├── style.css           → estilos globais
+├── images/
+│   └── bravo_logo.jpg
+└── js/
+    ├── config.js        → ⭐ configuração central do site
+    ├── main.js           → ponto de entrada, importa e inicializa os módulos
+    ├── navbar.js         → menu fixo, toggle mobile, scroll suave
+    ├── form.js           → validação do form e envio via WhatsApp
+    └── utils.js          → scroll-reveal + aplicação do config.js no HTML
 ```
 
----
+## `config.js` — fonte única de configuração
 
-## Seções (index.html)
+Todos os dados que mudam com frequência (telefone, e-mail, endereço, redes
+sociais) e os parâmetros de comportamento da UI ficam centralizados em
+**`js/config.js`**:
 
-| Seção | Descrição |
-|---|---|
-| **Navbar** | Fixa no topo, blur ao rolar, menu hambúrguer mobile |
-| **Hero** | Título display + overlay grid estilo ringue + estatísticas |
-| **Sobre** | Apresentação da academia com cards numerados |
-| **Modalidades** | 6 cards: Kickboxing, Muay Thai, Defesa Pessoal, Kids, Condicionamento, Equipe |
-| **Diferenciais** | 6 itens de proposta de valor |
-| **Horários** | Tabela semanal de grade de aulas |
-| **CTA / Contato** | Formulário que abre WhatsApp com mensagem pré-preenchida |
-| **Footer** | Links de navegação, contato e links legais |
-
----
-
-## Módulos JS
-
-| Arquivo | Responsabilidade |
-|---|---|
-| `main.js` | Entry point — importa e inicializa os módulos, seta o ano no footer |
-| `navbar.js` | Classe `.scrolled` ao rolar, toggle mobile, smooth scroll com offset da navbar |
-| `form.js` | Validação de campos, montagem da mensagem, abertura do WhatsApp, feedback inline |
-| `utils.js` | Scroll-reveal via `IntersectionObserver`, utilitários sem módulo próprio |
-
-> Os módulos usam `import/export` nativo (ES Modules). O `<script>` no HTML usa `type="module"`.  
-> ⚠️ Módulos ES não funcionam via `file://` — use um servidor local para desenvolver (ver DEPLOY.md).
-
----
-
-## Tecnologias
-
-- **HTML5** semântico
-- **CSS3** — variáveis, grid, flexbox, `clamp()`, `backdrop-filter`
-- **JavaScript** vanilla ES6+ com ES Modules — sem jQuery, sem frameworks
-- **Google Fonts** via CDN: `Bebas Neue` (display) + `Inter` (corpo)
-
-Nenhuma outra dependência externa.
-
----
-
-## Personalização
-
-Antes de publicar, edite os seguintes valores em `index.html` e `legal.html`:
-
-```
-# Contato
-Telefone:  (31) 9 0000-0000  →  número real
-WhatsApp:  5531900000000      →  número real (somente dígitos, com DDI)  ←  também em js/form.js
-E-mail:    contato@bravocombat.com.br
-Endereço:  Rua dos Campeões, 42 – Centro
-
-# Redes sociais (footer)
-Links Instagram e YouTube → URLs reais
+```js
+export const CONFIG = {
+  site:    { name, fullName },
+  contact: { address, phoneDisplay, phoneHref, whatsappNumber, email, emailHref, ... },
+  social:  { instagram, youtube },
+  ui:      { navScrollThreshold, revealThreshold, revealStaggerStep, feedbackTimeoutMs },
+};
 ```
 
-Para trocar cores, edite as variáveis CSS no topo de `style.css`:
+**Para atualizar telefone, e-mail, endereço ou redes sociais, edite apenas
+este arquivo** — o restante do site é alimentado a partir dele:
 
-```css
-:root {
-  --red:        #C8000A;
-  --red-bright: #FF1A1A;
-  /* ... */
+- `form.js` usa `CONFIG.contact.whatsappNumber` para montar o link do
+  WhatsApp do formulário de aula gratuita.
+- `navbar.js` e `utils.js` usam `CONFIG.ui.*` para ajustar o comportamento do
+  scroll da navbar e das animações de entrada (scroll-reveal).
+- `index.html` e `legal.html` têm elementos marcados com os atributos
+  `data-config-text` e `data-config-href` (no rodapé e nos links de e-mail),
+  que são preenchidos automaticamente em tempo de execução por
+  `applyConfig()` (em `utils.js`, chamado a partir de `main.js`).
+
+> O texto/href que já está escrito no HTML é o valor padrão — caso o
+> JavaScript não carregue por algum motivo, o site continua exibindo as
+> informações corretas (progressive enhancement). O `config.js` apenas
+> garante que você não precise editar a mesma informação em vários lugares.
+
+### Exemplo: trocando o número de WhatsApp
+
+```js
+// js/config.js
+contact: {
+  whatsappNumber: "5531999999999", // só dígitos, com DDI
+  phoneHref: "tel:+5531999999999",
+  phoneDisplay: "(31) 9 9999-9999",
 }
 ```
 
----
+Isso atualiza automaticamente o link de WhatsApp do formulário **e** o
+telefone exibido no rodapé de `index.html` e `legal.html`.
 
-## Acessibilidade & Performance
+## Rodando localmente
 
-- Responsivo de 320px a 1920px+
-- `prefers-reduced-motion` respeitado
-- Atributos `aria-label`, `role` e `aria-selected` nas tabs e botões
-- Scroll-reveal via `IntersectionObserver` (sem biblioteca)
-- Imagens com `alt` descritivo
+Como os scripts usam `<script type="module">` (ES Modules), os arquivos
+**não podem ser abertos direto com duplo-clique** (`file://`) — navegadores
+bloqueiam `import` nesse contexto. É necessário um servidor local simples:
 
----
+```bash
+# Python 3
+python3 -m http.server 8000
 
-## Legal
+# ou Node (sem instalação global)
+npx serve .
+```
 
-Conteúdo de `legal.html` inclui:
+Depois acesse `http://localhost:8000`.
 
-- **Política de Privacidade** — adequada à LGPD (Lei 13.709/2018)
-- **Termos de Uso** — foro em Belo Horizonte/MG
+## Customização rápida
 
-> ⚠️ Revise com um profissional jurídico antes de publicar em produção.
+| O que mudar              | Onde                                  |
+| ------------------------- | -------------------------------------- |
+| Telefone, e-mail, redes   | `js/config.js`                        |
+| Textos, seções, horários  | `index.html`                          |
+| Política/Termos           | `legal.html`                          |
+| Cores, fontes, espaçamentos | `style.css`                         |
+| Logo                      | `images/bravo_logo.jpg`               |
+
+## Compatibilidade
+
+Site testado em navegadores modernos (Chrome, Firefox, Safari, Edge) com
+suporte a ES Modules e `IntersectionObserver`.
+
+Veja também [`DEPLOY.md`](./DEPLOY.md) para instruções de publicação.
